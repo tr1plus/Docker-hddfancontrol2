@@ -4,22 +4,18 @@
 
 Docker image for https://github.com/desbma/hddfancontrol
 
-My goal is to use this on truenas scale to allow ramping my fans based on drive temp.
+My goal is to use this on truenas scale to allow changing my fans based on drive temp.
 
 There are some other containers available like this one, but hddfancontrol recently got an update to V2, so I decided to make my own (and I couldn't get to others working)
 
 
-**NOTE**: I am experimenting with github actions to build docker images ect.
+**NOTE**: I am experimenting with github actions to build docker images ect. - open to feedback, but this is mostly for personal use and decided to share.
 
-## To-Do
+## Usage
 
-- [ ] Right now I just download a specific .deb file - ideally I make this look for the latest version, or build from source.
+You might have to run `sensors-detect` to enable this container to "see" the fans/PWM.
 
-## Some preliminary details to build image & run.
+1. Run the docker-compose file.
+2. You can check some examples in `.env` file to show how to use this.
 
-```
-sudo docker build .
-
-
-sudo docker run --privileged -d --env DEVICES=/dev/sdb --env PWM=/sys/class/hwmon/hwmon6/pwm3:200:30 sha256:xxx
-```
+**NOTE**: I'm also still experimenting with hddfancontrol - getting it to run easily on truenas was only the first hurdle
