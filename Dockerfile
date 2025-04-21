@@ -2,8 +2,8 @@
 FROM debian
 WORKDIR /hddfancontrol
 #Dependencies
-RUN apt update
-RUN apt install wget hdparm sdparm smartmontools lm-sensors fancontrol
+RUN apt update -y 
+RUN apt install -y wget hdparm sdparm smartmontools lm-sensors fancontrol
 
 #Wget latest release - need to change to build from source
 RUN wget https://github.com/desbma/hddfancontrol/releases/download/2.0.2/hddfancontrol_2.0.2-1_amd64.deb
