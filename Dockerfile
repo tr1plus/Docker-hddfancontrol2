@@ -10,4 +10,4 @@ RUN wget https://github.com/desbma/hddfancontrol/releases/download/2.0.2/hddfanc
 RUN dpkg -i hddfancontrol_2.0.2-1_amd64.deb
 
 #run command - to use variables
-ENTRYPOINT hddfancontrol daemon -d $DEVICES -p $PWM --min-fan-speed-prct 10 -i 1min
+ENTRYPOINT hddfancontrol daemon -d ${DEVICES} -p ${PWM} --min-fan-speed-prct 10 -i 1min
