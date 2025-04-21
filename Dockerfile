@@ -8,8 +8,8 @@ RUN apt install -y curl build-essential hdparm sdparm smartmontools
 
 #Wget latest release - need to change to build from source
 RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
-#exec bash is to refresh PATH variables (otherwise cargo is not known)
-RUN exec bash
+#exec sh is to refresh PATH variables (otherwise cargo is not known)
+RUN exec sh
 RUN cargo install hddfancontrol
 
 #entrypoint
