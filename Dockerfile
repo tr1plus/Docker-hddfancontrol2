@@ -11,5 +11,5 @@ RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
 #don't know how to refresh path - have to hard code cargo path
 RUN /root/.cargo/bin/cargo install hddfancontrol
 
-#entrypoint
-ENTRYPOINT hddfancontrol daemon -d ${DEVICES} -p ${PWM} --min-fan-speed-prct 10 -i 1min
+#entrypoint - also have to hardcode here since we are using sh and not bash
+ENTRYPOINT /root/.cargo/bin/hddfancontrol daemon -d ${DEVICES} -p ${PWM} --min-fan-speed-prct 10 -i 1min
