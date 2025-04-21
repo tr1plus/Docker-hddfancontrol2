@@ -1,7 +1,8 @@
 #Base
 FROM debian
 WORKDIR /hddfancontrol
-#Dependencies
+
+#Dependencies - might remove wget if no longer getting .deb file
 RUN apt update -y 
 RUN apt install -y wget hdparm sdparm smartmontools lm-sensors fancontrol
 
@@ -9,5 +10,5 @@ RUN apt install -y wget hdparm sdparm smartmontools lm-sensors fancontrol
 RUN wget https://github.com/desbma/hddfancontrol/releases/download/2.0.2/hddfancontrol_2.0.2-1_amd64.deb
 RUN dpkg -i hddfancontrol_2.0.2-1_amd64.deb
 
-#run command - to use variables
+#entrypoint
 ENTRYPOINT hddfancontrol daemon -d ${DEVICES} -p ${PWM} --min-fan-speed-prct 10 -i 1min
