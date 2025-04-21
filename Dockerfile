@@ -11,3 +11,4 @@ RUN dpkg -i hddfancontrol_2.0.2-1_amd64.deb
 
 #run command - to use variables
 #ENTRYPOINT hddfancontrol daemon -d /dev/sda -p /sys/class/hwmon/hwmon6/pwm3:200:30 --min-fan-speed-prct 10 -i 1min
+ENTRYPOINT sleep infinity
