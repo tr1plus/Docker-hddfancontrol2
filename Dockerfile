@@ -11,6 +11,3 @@ RUN dpkg -i hddfancontrol_2.0.2-1_amd64.deb
 
 #run command - to use variables
 ENTRYPOINT hddfancontrol daemon -d $DEVICES -p $PWM --min-fan-speed-prct 10 -i 1min
-
-#Devices = /dev/sdb
-#PWM = /sys/class/hwmon/hwmon6/pwm3:200:30
