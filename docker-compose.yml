@@ -1,4 +1,6 @@
-  service_name: hddfancontrol
+services:
+  
+  hddfancontrol:
     build:
       context: .
       dockerfile_inline: |
