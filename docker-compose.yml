@@ -1,9 +1,10 @@
 services:
-  
   hddfancontrol:
-    privileged: true
-    image: ghcr.io/tr1plus/docker-hddfancontrol2:main
     container_name: hddfancontrol
     environment:
-     - DEVICES=${DEVICES}
-     - PWM=${PWM}
+      - DEVICES=/dev/disk/by-id/xxx /dev/disk/by-id/xxx
+      - PWM=/sys/class/hwmon/hwmon6/pwm3:200:30
+    image: ghcr.io/tr1plus/docker-hddfancontrol2:main
+    privileged: True
+    volumes:
+      - /dev/disk/by-id/:/dev/disk/by-id
